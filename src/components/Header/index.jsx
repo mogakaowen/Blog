@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Logo from "./Logo";
-import { LinkedinIcon } from "../Icons";
+import { LinkedinIcon, TwitterIcon, GithubIcon, DribbleIcon } from "../Icons";
 
 const Header = () => {
   return (
@@ -21,11 +21,17 @@ const Header = () => {
 
       <div>
         <a href="http://example.com" className="inline-block w-6 h-6 mr-4">
-          <LinkedinIcon />
+          <LinkedinIcon className="hover:scale-125 transition-all ease duration-200" />
         </a>
-        <a href="http://example.com">GitHub</a>
-        <a href="http://example.com">Twitter</a>
-        <a href="http://example.com">Dribble</a>
+        <a href="http://example.com" className="inline-block w-6 h-6 mr-4">
+          <GithubIcon className="hover:scale-125 transition-all ease duration-200" />
+        </a>
+        <a href="http://example.com" className="inline-block w-6 h-6 mr-4">
+          <TwitterIcon className="hover:scale-125 transition-all ease duration-200" />
+        </a>
+        <a href="http://example.com" className="inline-block w-6 h-6 mr-4">
+          <DribbleIcon className="hover:scale-125 transition-all ease duration-200" />
+        </a>
       </div>
     </header>
   );
