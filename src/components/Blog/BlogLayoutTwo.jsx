@@ -4,7 +4,7 @@ import { format } from "date-fns";
 
 const BlogLayoutTwo = ({ featuredBlog }) => {
   return (
-    <div className="grid grid-cols-12 gap-4 items-center text-dark">
+    <div className="group grid grid-cols-12 gap-4 items-center text-dark">
       <Link
         href={featuredBlog.url}
         className="col-span-4 h-full rounded-xl overflow-hidden"
@@ -16,7 +16,7 @@ const BlogLayoutTwo = ({ featuredBlog }) => {
           alt={featuredBlog.title}
           width={featuredBlog.image.width}
           height={featuredBlog.image.height}
-          className="aspect-square w-full h-full object-cover object-center"
+          className="aspect-square w-full h-full object-cover object-center group-hover:scale-105 transition-all ease duration-300"
         />
       </Link>
 
@@ -26,7 +26,7 @@ const BlogLayoutTwo = ({ featuredBlog }) => {
         </span>
         <Link href={featuredBlog.url} className="inline-block my-1">
           <h2 className="text-xl font-semibold capitalize">
-            <span className="bg-gradient-to-r from-accent/50 to-accent/50 bg-[length:0px_4px] hover:bg-[length:100%_4px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500">
+            <span className="bg-gradient-to-r from-accent/50 to-accent/50 bg-[length:0px_4px] group-hover:bg-[length:100%_4px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500">
               {featuredBlog.title}
             </span>
           </h2>
