@@ -11,7 +11,7 @@ const HomeCover = ({ blogs }) => {
   return (
     <div className="w-full inline-block">
       <article className=" flex flex-col items-start justify-end mx-10 relative h-[85vh]">
-        <div className="absolute top-0 left-0 bottom-0 right-10 w-full h-full bg-gradient-to-b from-transparent from-0% to-dark rounded-3xl z-0" />
+        <div className="absolute top-0 left-0 bottom-0 right-0 h-full bg-gradient-to-b from-transparent from-0% to-dark/90 rounded-3xl z-0" />
         <Image
           src={coverBlog.image.filePath.replace("../public", "")}
           placeholder="blur"
@@ -33,7 +33,9 @@ const HomeCover = ({ blogs }) => {
               </span>
             </h1>
           </Link>
-          <p className="text-xl mt-4">{coverBlog.description}</p>
+          <p className="text-xl inline-block mt-4 font-in">
+            {coverBlog.description}
+          </p>
         </div>
       </article>
     </div>
