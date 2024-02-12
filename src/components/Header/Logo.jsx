@@ -12,7 +12,7 @@ const Logo = () => {
           className="w-full h-auto rounded-full "
         />
       </div>
-      <span className="font-bold text-xl">Codebucks</span>
+      <span className="font-bold text-xl">Mogaka</span>
     </Link>
   );
 };
