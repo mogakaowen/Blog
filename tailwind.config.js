@@ -20,5 +20,5 @@ module.exports = {
       },
     },
   }, // app themes
-  plugins: [],
+  plugins: ["@tailwindcss/forms", "@tailwindcss/typography"],
 };
