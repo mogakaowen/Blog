@@ -3,9 +3,12 @@ import React from "react";
 import Tag from "../../../components/Elements/Tag";
 import Image from "next/image";
 import { format } from "date-fns";
+import BlogDetails from "../../../components/Blog/BlogDetails";
+import RenderMdx from "../../../components/Blog/RenderMdx";
 
 const BlogPage = ({ params }) => {
   const blog = allBlogs.find((blog) => blog._raw.flattenedPath === params.slug);
+  // console.log(blog);
 
   return (
     <article>
@@ -19,22 +22,28 @@ const BlogPage = ({ params }) => {
           <h1 className="inline-block mt-6 text-5xl font-seminold capitalize text-light leading-normal relative w-5/6">
             {blog.title}
           </h1>
-          <p className="text-light mt-2">
+          {/* <p className="text-light mt-2">
             {format(new Date(blog.publishedAt), "MMMM dd, yyyy")}
-          </p>
+          </p> */}
         </div>
 
-        <div className="absolute top-0 left-0 right-0 bottom-0 h-full bg-dark/60">
-          <Image
-            src={blog.image.filePath.replace("../public", "")}
-            placeholder="blur"
-            blurDataURL={blog.image.blurhashDataUrl}
-            alt={blog.title}
-            width={blog.image.width}
-            height={blog.image.height}
-            className="aspect-square w-full h-full object-cover object-center "
-          />
-        </div>
+        <div className="absolute top-0 left-0 right-0 bottom-0 h-full bg-dark/60" />
+        <Image
+          src={blog.image.filePath.replace("../public", "")}
+          placeholder="blur"
+          blurDataURL={blog.image.blurhashDataUrl}
+          alt={blog.title}
+          width={blog.image.width}
+          height={blog.image.height}
+          className="aspect-square w-full h-full object-cover object-center "
+        />
+      </div>
+
+      <BlogDetails blog={blog} slug={params.slug} />
+
+      <div className="grid grid-cols-12 gap-16 mt-8 px-10">
+        <div className="col-span-4">TOC</div>
+        <RenderMdx blog={blog} />
       </div>
     </article>
   );
