@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { sortBlogs } from "@/src/utils";
 import Tag from "@/src/components/Elements/Tag";
+import { slug } from "github-slugger";
 
 const HomeCover = ({ blogs }) => {
   const sortedBlogs = sortBlogs(blogs);
@@ -23,7 +24,7 @@ const HomeCover = ({ blogs }) => {
 
         <div className="w-3/4 p-16 flex flex-col items-start justify-content z-0 text-light">
           <Tag
-            link={`/categories/${coverBlog.tags[0]}`}
+            link={`/categories/${slug(coverBlog.tags[0])}`}
             name={coverBlog.tags[0]}
           />
           <Link href={coverBlog.url} className="mt-6">

@@ -4,6 +4,7 @@ import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeAutoLinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
+import GithubSlugger from "github-slugger";
 
 const Blog = defineDocumentType(() => ({
   name: "Blog",
@@ -52,6 +53,38 @@ const Blog = defineDocumentType(() => ({
     readingTime: {
       type: "json",
       resolve: (doc) => readingTime(doc.body.raw),
+    },
+    toc: {
+      type: "json",
+      resolve: async (doc) => {
+        const regularExpression = /\n(?<flag>#{1,6})\s(?<content>.+)/g;
+        const slugger = new GithubSlugger();
+        const headings = Array.from(
+          doc.body.raw.matchAll(regularExpression)
+        ).map(({ groups }) => {
+          const flag = groups?.flag;
+          const content = groups?.content;
+
+          return {
+            level:
+              flag?.length === 1
+                ? "one"
+                : flag?.length === 2
+                ? "two"
+                : flag?.length === 3
+                ? "three"
+                : flag?.length === 4
+                ? "four"
+                : flag?.length === 5
+                ? "five"
+                : "six",
+            text: content,
+            slug: content ? slugger.slug(content) : "",
+          };
+        });
+
+        return headings;
+      },
     },
   },
 }));
