@@ -5,7 +5,13 @@ import Image from "next/image";
 import { format } from "date-fns";
 import BlogDetails from "../../../components/Blog/BlogDetails";
 import RenderMdx from "../../../components/Blog/RenderMdx";
-import { slug } from "github-slugger";
+import GithubSlugger, { slug } from "github-slugger";
+
+const slugger = new GithubSlugger();
+
+export async function generateStaticParams() {
+  return allBlogs.map((blog) => ({ slug: blog._raw.flattenedPath }));
+}
 
 const BlogPage = ({ params }) => {
   const blog = allBlogs.find((blog) => blog._raw.flattenedPath === params.slug);
