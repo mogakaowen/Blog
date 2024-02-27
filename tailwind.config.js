@@ -18,6 +18,16 @@ module.exports = {
         mr: ["var(--font-mr)"],
         in: ["var(--font-in)"],
       },
+      // for the insights (use animate-roll class on the parent div and animate-roll on the child div to get the roll effect)
+      animation: {
+        roll: "roll 30s linear infinite",
+      },
+      keyframes: {
+        roll: {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+      },
     },
   }, // app themes
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],

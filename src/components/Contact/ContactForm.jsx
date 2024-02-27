@@ -45,12 +45,12 @@ export default function ContactForm() {
         {...register("project details", {})}
         rows={3}
         placeholder="My project is about..."
-        className="w-full  p-2 mx-2 focus:ring-0 placeholder:text-lg border-b border-gray focus:border-gray bg-transparent"
+        className="w-full p-2 mr-2 focus:ring-0 placeholder:text-lg border-b border-gray focus:border-gray bg-transparent rounded-lg"
       />
       <input
         type="submit"
         value="send request"
-        className="mt-8 font-medium inline-block capitalize text-xl py-3 px-8 border-2 border-solid border-dark rounded-lg  cursor-pointer"
+        className="mt-8 font-medium inline-block capitalize text-xl py-3 px-5 border-2 border-solid border-dark rounded-lg  cursor-pointer"
       />
     </form>
   );
