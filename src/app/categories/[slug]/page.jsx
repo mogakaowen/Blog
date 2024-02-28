@@ -25,6 +25,16 @@ export async function generateStaticParams() {
   return paths;
 }
 
+// setting SEO
+export async function generateMetadata({ params }) {
+  return {
+    title: `${params.slug.replaceAll("-", " ")} blogs`,
+    description: `Discover more about ${
+      params.slug === "all" ? "web development" : params.slug
+    } and expand your knowledge.`,
+  };
+}
+
 const CategoryPage = ({ params }) => {
   const allCategories = ["all"];
   const blogs = allBlogs.filter((blog) => {

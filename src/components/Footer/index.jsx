@@ -3,6 +3,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { LinkedinIcon, TwitterIcon, GithubIcon, DribbleIcon } from "../Icons";
 import Link from "next/link";
+import siteMetadata from "@/src/utils/siteMetaData";
 
 const Footer = () => {
   const {
@@ -40,19 +41,19 @@ const Footer = () => {
       </form>
 
       <div className="flex items-center mt-8">
-        <a href="http://example.com" className="inline-block w-6 h-6 mr-4">
+        <a href={siteMetadata.linkedin} className="inline-block w-6 h-6 mr-4">
           <LinkedinIcon className="hover:scale-125 transition-all ease duration-200" />
         </a>
         <a
-          href="http://example.com"
+          href={siteMetadata.github}
           className="inline-block w-6 h-6 mr-4 fill-light"
         >
           <GithubIcon className="hover:scale-125 transition-all ease duration-200" />
         </a>
-        <a href="http://example.com" className="inline-block w-6 h-6 mr-4">
+        <a href={siteMetadata.twitter} className="inline-block w-6 h-6 mr-4">
           <TwitterIcon className="hover:scale-125 transition-all ease duration-200" />
         </a>
-        <a href="http://example.com" className="inline-block w-6 h-6 mr-4">
+        <a href={siteMetadata.dribble} className="inline-block w-6 h-6 mr-4">
           <DribbleIcon className="hover:scale-125 transition-all ease duration-200" />
         </a>
       </div>
